@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <meta http-equiv="cleartype" content="on">
+
+
+        <!--abdalla-->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+        <script type="text/javascript"
+                src="http://code.jquery.com/jquery-1.11.3.min.js">
+        </script>
+
+        <script type="text/javascript"
+                src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+
+        </script>
+
+        <link rel="stylesheet" href="css/themes/contactList.css" />
+        <link rel="stylesheet" href="css/themes/contactList.min.css" />
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+        <script src ="js/Admin.js" ></script>
+        <script src ="js/lab1.js" ></script>
+        <!--abdalla-->
+
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+    </head>
+    <body onload="looad();">
+
+        <!-- Add your site or application content here -->
+        <!--myada-->
+
+
+
+
+
+
+        <!--myada-->
+        <!--abdalla-->
+        <section data-role="page" class="ui-content" role="main" id="main" style="width: 90%">
+            <header data-role="header">
+                <h1>Contact List</h1>
+                <a href="#addContact" data-transition="flip" data-icon="plus" data-theme="a" data-iconpos="notext" data-role="button" class="headerButton">Add</a>
+
+            </header>
+            <artical data-role="content">
+                <input type="text" autocomplete="off" placeholder="Search by name" name="searchbyName" id="myInput"  onkeyup="userSearchFunction()">
+                <div class="choice_list" id="UserInputList"> 
+
+
+                    <ul id="myUL" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                        <!--<li data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="choose_town.html" data-transition="slidedown" class="ui-link-inherit"> <img src="nems.jpg" class="ui-li-thumb"> <h3 class="ui-li-heading"> Some Nems </h3></a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>-->
+
+                    </ul>	
+
+                </div>
+            </artical>
+            <footer data-role="footer">
+                <h1>Contact List</h1>  
+            </footer>
+        </section>
+        <!--abdalla-->
+        <!--myada-->
+        <section data-role="page" id="addContact">
+            <header data-role="header" data-add-back-btn="true">
+                <h1>New Contact</h1>
+            </header>
+
+            <article data-role="content">
+                <form id="profileform" name="profileform" onsubmit="return addUser()">
+                    NAME:<input type="text" id="userName" required/></br>
+                    Phone:<input type="tel" id="teleph" placeholder="(01[0-2]{1}[0-9]{8}" pattern="^01[0-2]{1}[0-9]{8}" required/></br>
+                    E-mail:<input type="email" id="email" required/></br>                   
+                    <!--                    <div data-role="fieldcontain" >
+                                            <label for="flip-3">Gender:</label>
+                                            <select name="flip-3" id="flip-3" data-role="slider" data-theme="a">
+                                                <option value="no">Male</option>
+                                                <option value="yes">Female</option>
+                                            </select> 
+                                        </div>-->
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">gender</label>
+                        <select  id="gender" data-role="slider">
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit"  data-role="button" id="savebtn" data-icon="check" value="save"  >
+                        <a href="#main" data-role="button" id="cancelbtn" data-icon="delete" onclick="cancelAddition();">Cancel</a>
+                    </div>
+
+                </form>
+            </article>
+
+            <footer data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+        <section data-role="page" id="Profile" >
+            <header data-role="header" data-add-back-btn="true">
+                <h1 id="targetID" ></h1>
+            </header>
+
+            <article data-role="content" id="contentProfile1">
+                <div id="photo">
+                    <img id="profileImage"/>
+                </div>
+                <a href="#dialog" data-role="button" id="deleteprofilebtn" data-icon="delete"></a>
+                <a data-role="button" id="editbtn" data-icon="edit"></a>
+                <!--                <a data-role="button" onclick="" id="callbtn" data-icon="phone"></a>-->
+                <div>
+
+                </div>
+            </article>
+
+
+            <footer data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+        <section data-role="dialog" id="dialog">
+
+            <article data-role="content">
+                <div id="delete_message">
+                    <h2>Are You Sure You Want To Delete This Contact?</h2>
+                    <a href="#Profile" data-role="button"  id="cancelbtn" data-icon="forbidden">Cancel</a>
+                    <a href="#main" data-role="button" onclick="deleteProfile()" id="delbtn" data-icon="delete">Delete</a>  
+                </div>
+            </article>
+        </section>
+        <!--myada-->
+        <script src="js/vendor/jquery-2.1.0.min.js"></script>
+        <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+                        (function (b, o, i, l, e, r) {
+                            b.GoogleAnalyticsObject = l;
+                            b[l] || (b[l] =
+                                    function () {
+                                        (b[l].q = b[l].q || []).push(arguments)
+                                    });
+                            b[l].l = +new Date;
+                            e = o.createElement(i);
+                            r = o.getElementsByTagName(i)[0];
+                            e.src = '//www.google-analytics.com/analytics.js';
+                            r.parentNode.insertBefore(e, r)
+                        }(window, document, 'script', 'ga'));
+                        ga('create', 'UA-XXXXX-X');
+                        ga('send', 'pageview');
+        </script>
+    </body>
+</html>
